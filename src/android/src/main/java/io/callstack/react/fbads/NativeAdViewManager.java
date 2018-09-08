@@ -10,6 +10,7 @@ package io.callstack.react.fbads;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdsManager;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactMethod;
