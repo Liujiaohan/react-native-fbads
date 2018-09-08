@@ -10,6 +10,7 @@ package io.callstack.react.fbads;
 import android.util.Log;
 
 import com.facebook.ads.AdError;
+import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdsManager;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -133,7 +134,7 @@ public class NativeAdManager extends ReactContextBaseJavaModule implements Nativ
         return mNativeAdsManagers.get(placementId);
     }
 
-    
+
     /**
      * Helper for sending events back to Javascript.
      *
