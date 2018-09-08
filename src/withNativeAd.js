@@ -73,7 +73,7 @@ export default (Component: Function) => class NativeAdWrapper extends React.Comp
         >
         {this.state.ad && <Component nativeAd={this.state.ad} {...props} nativeAdView={this.rootRef}/>}
         </NativeAdView>
-        {this.state.ad && <AdChoices style = {{height: 15, width: '100%'}} nativeAdView = {this.rootRef}/>}
+        {this.state.ad && <AdChoices style = {{height: 15, width: '100%'}} adsManager = {adsManager.toJSON()}/>}
       </View>
     );
   }

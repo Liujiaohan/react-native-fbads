@@ -51,14 +51,16 @@ public class AdChoiceViewManager extends SimpleViewManager<RelativeLayout> {
     /**
      * Set the root reference to get the native ad view manager
      */
-    @ReactProp(name = "nativeAdView")
-    public void setNativeAdView(final RelativeLayout view, final int tag) {
+    @ReactProp(name = "adsManager")
+    public void setNativeAdView(final RelativeLayout view, final String adsManagerId) {
         UIManagerModule uiManager = this.mContext.getNativeModule(UIManagerModule.class);
         uiManager.addUIBlock(new UIBlock() {
             @Override
             public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
-                NativeAdView v = (NativeAdView)nativeViewHierarchyManager.resolveView(tag);
-                NativeAd ad = v.getNativeAd();
+                //NativeAdView v = (NativeAdView)nativeViewHierarchyManager.resolveView(tag);
+                //NativeAd ad = v.getNativeAd();
+                NativeAdManager adManager = mContext.getNativeModule(NativeAdManager.class);
+                NativeAd ad = adManager.getFBNativeAd(adsManagerId);
                 if (ad != null) {
                     final AdChoiceView adChoicesView = new AdChoiceView(mContext, ad, true);
                     mRootView.addView(adChoicesView);

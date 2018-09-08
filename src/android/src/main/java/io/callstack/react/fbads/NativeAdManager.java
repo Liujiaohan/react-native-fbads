@@ -25,6 +25,7 @@ import java.util.Map;
 public class NativeAdManager extends ReactContextBaseJavaModule implements NativeAdsManager.Listener {
     /** @{Map} with all registered fb ads managers **/
     private Map<String, NativeAdsManager> mAdsManagers = new HashMap<>();
+    private Map<String, NativeAd> mNativeAdsManagers = new HashMap<>();
 
     public NativeAdManager(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -112,6 +113,27 @@ public class NativeAdManager extends ReactContextBaseJavaModule implements Nativ
         return mAdsManagers.get(placementId);
     }
 
+    /**
+     * Returns NativeAd for a given placement id
+     *
+     * @param placementId
+     * @return
+     */
+    public void putFBNativeAd(String placementId, NativeAd nativeAd) {
+        mNativeAdsManagers.put(placementId, nativeAd);
+    }
+
+    /**
+     * Returns NativeAd for a given placement id
+     *
+     * @param placementId
+     * @return
+     */
+    public NativeAd getFBNativeAd(String placementId) {
+        return mNativeAdsManagers.get(placementId);
+    }
+
+    
     /**
      * Helper for sending events back to Javascript.
      *
